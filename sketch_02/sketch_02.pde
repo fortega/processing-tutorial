@@ -6,10 +6,11 @@
 // Esta funcion se ejecuta solo una vez cuando inicia el programa
 
 int click = 0;
-float cursor = 2.5;
+float cursor = 25;
+boolean dibujaCursor = true;
 void setup(){
   //Establecemos el tamaño del dibujo
-  size(300,300);
+  size(600,600);
   
   //Eliminamos el cursor
   noCursor();
@@ -37,9 +38,11 @@ void draw(){
   }
   
   //Puntero Mouse
-  fill(0);
-  ellipseMode(CENTER);
-  ellipse(mouseX,mouseY,cursor,cursor);
+  if(dibujaCursor){
+    fill(0);
+    ellipseMode(CENTER);
+    ellipse(mouseX,mouseY,cursor,cursor);
+  }
   
   // Cursor fijo en Y
   fill(0,0,255);
@@ -58,10 +61,12 @@ void draw(){
 //Evento de apretar un boton
 void mousePressed(){
   if(mouseButton == LEFT){
+    // click = click + 1;
     click++;
   }else if(mouseButton == RIGHT){
+    //click = click - 1;
     click--;
   }else{
-    click = 0;
+    dibujaCursor = !dibujaCursor;
   }
 }
