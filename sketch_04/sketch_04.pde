@@ -5,9 +5,9 @@
 
 // Esta funcion se ejecuta solo una vez cuando inicia el programa
 
-float cuadrado = 25;
-float elipse = 50;
-boolean dibujaCursor = true;
+int ncuadrados = 4;
+int ncirculos_x = 12;
+int ncirculos_y = 12;
 void setup(){
   //Establecemos el tamaño del dibujo
   size(600,600);
@@ -22,17 +22,19 @@ void draw(){
   noFill();
   
   //Cuadrados
-  rect(150, 150, cuadrado, cuadrado);
+  for(int i = 0; i < ncuadrados; i++){
+    rect(i*width/ncuadrados, 0, width/ncuadrados, height);
+  }
   
-  //Elipse
+  //Elipses
   ellipseMode(CORNER);
-  ellipse(0, 0, elipse, elipse);
-  
-  // Cursor fijo en Y
-  fill(0,0,255);
-  text(mouseX, mouseX, 10);
-  
-  //Cursor fijo en X
-  fill(0,255,0);
-  text(mouseY, 10, mouseY);
+  for(int i = 0; i < ncirculos_x; i++){
+    for(int j = 0; j < ncirculos_y; j++){
+      ellipse(
+        i*width/ncirculos_x,
+        j*height/ncirculos_y,
+        width/ncirculos_x,
+        height/ncirculos_y);
+    }
+  }
 }

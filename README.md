@@ -17,10 +17,14 @@ La idea es abarcar:
 1.3 flotantes (float y double)
 1.4 color
 
-2. condicionales
-3. bucles
-4. enfoque sistemico: funciones
-5. arreglos
-6. funciones con arreglos
+2. condicionales (if, else if y else)
 
-7. deteccion colicion
+3. bucles (for)
+
+4. eventos / funciones
+4.1 mouse
+4.2 otros eventos
+
+5. arreglos
+
+6. funciones con arreglos

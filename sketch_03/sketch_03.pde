@@ -11,6 +11,10 @@ boolean dibujaCursor = true;
 void setup(){
   //Establecemos el tamaño del dibujo
   size(600,600);
+  
+  if(dibujaCursor){
+    noCursor();
+  }
 }
 
 // Esta funcion se ejecuta cada 1/60 segundos. Aqui es donde más trabajaremos
@@ -27,6 +31,13 @@ void draw(){
   //Elipse
   ellipseMode(CORNER);
   ellipse(0, 0, elipse, elipse);
+  
+  //Puntero Mouse
+  if(dibujaCursor){
+    fill(0);
+    ellipseMode(CENTER);
+    ellipse(mouseX,mouseY,10,10);
+  }
   
   // Cursor fijo en Y
   fill(0,0,255);
