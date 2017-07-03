@@ -6,32 +6,56 @@
 // Esta funcion se ejecuta solo una vez cuando inicia el programa
 
 int click = 0;
+float cursor = 2.5;
 void setup(){
   //Establecemos el tamaño del dibujo
   size(300,300);
+  
+  //Eliminamos el cursor
+  noCursor();
 }
 
 // Esta funcion se ejecuta cada 1/60 segundos. Aqui es donde más trabajaremos
 void draw(){
-  //limpiamos
+  //limpiamos fondo
   background(255);
+  
+  //Sin relleno
   noFill();
   
-  rect(75, 75, 150, 150);
+  //Cuadrados
+  for(int i = 0; i < 4; i++){
+    rect(i*width/4, 0, width/4, height);
+  }
   
+  //Elipses
+  ellipseMode(CORNER);
+  for(int i = 0; i < 4; i++){
+    for(int j = 0; j < 4; j++){
+      ellipse(i*width/4, j*height/4, width/4, height/4);
+    }
+  }
+  
+  //Puntero Mouse
+  fill(0);
   ellipseMode(CENTER);
-  ellipse(150, 150, 75, 75);
+  ellipse(mouseX,mouseY,cursor,cursor);
   
+  // Cursor fijo en Y
   fill(0,0,255);
   text(click, mouseX, 10);
   
+  //Cursor fijo en X
   fill(0,255,0);
   text(click, 10, mouseY);
   
+  // Cursor libre
   fill(255,0,0);
-  text(click, mouseX, mouseY);
+  text(click, mouseX, mouseY);  
 }
 
+
+//Evento de apretar un boton
 void mousePressed(){
   if(mouseButton == LEFT){
     click++;
